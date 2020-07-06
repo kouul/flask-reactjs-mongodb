@@ -7,8 +7,8 @@ app = Flask(__name__)
 cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
 
-mongoClient = MongoClient("MongoDB Atlas connection url needs to be here...")
-# mongoClient = MongoClient('mongodb://127.0.0.1:27017')
+# mongoClient = MongoClient("MongoDB Atlas connection url needs to be here...")
+mongoClient = MongoClient('mongodb://127.0.0.1:27017')
 db = mongoClient.get_database('names_db')
 names_col = db.get_collection('names_col')
 

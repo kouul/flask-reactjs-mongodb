@@ -25,8 +25,7 @@ class App extends Component {
     this.setState({
       loading: true,
     })
-    // await fetch('/addname/' + this.state.name, {
-    await fetch('https://be-name-app.herokuapp.com/addname/' + this.state.name, {
+    await fetch('/addname/' + this.state.name, {
       method: 'GET'
     });
     this.getNames()
@@ -34,8 +33,7 @@ class App extends Component {
 
 
   getNames() {
-    // fetch('/getnames/')
-    fetch('https://be-name-app.herokuapp.com/getnames/')
+    fetch('/getnames/')
       .then(response => response.json())
       .then(json => {
         this.setState({
