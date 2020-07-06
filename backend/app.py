@@ -18,10 +18,6 @@ def addname(name):
     names_col.insert_one({"name": name.lower()})
     return redirect(url_for('getnames'))
 
-@app.route('/test/test/')
-def test():
-    return {"test": "torma"}
-
 # GetNames route
 @app.route('/getnames/')
 def getnames():
@@ -30,11 +26,6 @@ def getnames():
         for name in names_col.find({}).sort("name"):
             names_json.append({"name": name['name'], "id": str(name['_id'])})
     return json.dumps(names_json)
-
-@app.route('/deleteall/')
-def deleteall():
-    names_col.remove({})
-    return redirect(url_for('getnames'))
 
 # Run app
 if __name__ == "__main__":
